@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi Timers</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css" />
+</head>
+<body>
+
+<div class="container mt-3">
+    <form class="form-inline" onsubmit="onFormSubmit()"  action="#">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="timerName" >Name: </label>
+            <input type="text" class="form-control ml-1" id="timerName" placeholder="Name">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="durationMins">Minutes: </label>
+            <input type="number" min="0" step="1" class="form-control ml-1" style="width: 80px" id="durationMins" placeholder="M">
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="durationSeconds">Seconds: </label>
+            <input type="number" min="0" step="1" class="form-control ml-1" style="width: 80px" id="durationSeconds" placeholder="S">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Add</button>
+    </form>
+    <div class="dropdown-divider"></div>
+    <div class="container mt-3">
+        <div id="timerHolder" class="container"></div>
+    </div>
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="timerModal">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Timer Complete!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                   <p id="modalBody"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="https://kit.fontawesome.com/d2f4c87b3f.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    let timers = [];
+    let lastCompletedTimer = "";
+
+    function onFormSubmit() {
+        const name = document.getElementById("timerName").value;
+        const durationMins = document.getElementById("durationMins").value || '0';
+        const durationSeconds = document.getElementById("durationSeconds").value || '0';
+        const timer = {
+            name: name,
+            duration: (parseInt(durationMins) * 60) + parseInt(durationSeconds),
+            isActive: true,
+            tickCount: 0
+        };
+        timers.push(timer);
+        // make UI
+        const row = document.createElement("div");
+        row.setAttribute('class', 'row w-100 border p-2 align-items-center');
+        row.setAttribute('id', name+'Wrapper');
+
+        const nameUi = document.createElement("div");
+        nameUi.setAttribute('class', 'col');
+        nameUi.textContent = name;
+        row.appendChild(nameUi);
+
+        const timerUi = document.createElement("div");
+        timerUi.setAttribute('class', 'col');
+        timerUi.textContent = durationToTimeDisplay(timer.duration);
+        timerUi.setAttribute('id', name+'TimerDisplay');
+        row.appendChild(timerUi);
+
+        const restartButton = document.createElement("button");
+        restartButton.setAttribute('class', 'btn');
+        restartButton.setAttribute('onclick','restartTimer("'+name+'")');
+        restartButton.setAttribute('id', name+'ResetButton');
+        restartButton.innerHTML = '<i class=\"fas fa-undo\"></i>';
+        row.appendChild(restartButton);
+
+        const toggleButton = document.createElement("button");
+        toggleButton.setAttribute('class', 'btn');
+        toggleButton.setAttribute('onclick','toggleTimer("'+name+'")');
+        toggleButton.setAttribute('id', name+'ToggleButton');
+        toggleButton.innerHTML = '<i class="fas fa-pause"></i>';
+        row.appendChild(toggleButton);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.setAttribute('class', 'btn');
+        deleteButton.setAttribute('onclick','deleteTimer("'+name+'")');
+        deleteButton.setAttribute('id', name+'DeleteButton');
+        deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+        row.appendChild(deleteButton);
+
+        document.getElementById("timerHolder").appendChild(row);
+
+        document.getElementById("timerName").value = "";
+        document.getElementById("durationMins").value = "";
+        document.getElementById("durationSeconds").value = "";
+    }
+
+    function durationToTimeDisplay(duration){
+        if(duration < 1) {
+            return "0:00"
+        }
+        return Math.floor(duration/60)+":"+("0" + duration%60).slice(-2);
+    }
+
+    function restartTimer(name) {
+        const item = timers.find((timer) => timer.name === name);
+        if(item) {
+            item.tickCount = 0;
+        }
+    }
+
+    function deleteTimer(name) {
+        timers = timers.filter((timer) => timer.name !== name);
+        document.getElementById(name+'Wrapper').remove();
+    }
+
+    function toggleTimer(name) {
+        const item = timers.find((timer) => timer.name === name);
+        if(item) {
+            item.isActive = !item.isActive;
+            const toggleButton = document.getElementById(item.name+"ToggleButton");
+            if(item.isActive){
+                toggleButton.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                toggleButton.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+    }
+
+    function tickTimers(){
+        timers.forEach((timer)=>{
+            if(timer.isActive){
+                timer.tickCount = timer.tickCount + 1;
+                const timerUi = document.getElementById(timer.name+"TimerDisplay");
+                timerUi.textContent = durationToTimeDisplay(timer.duration - timer.tickCount);
+                if(timer.duration - timer.tickCount === 0) {
+                    console.log("Showing Modal for "+timer.name);
+                    lastCompletedTimer = timer.name;
+                    $('#timerModal').modal({
+                        keyboard: false
+                    })
+                }
+            }
+        });
+    }
+
+    $('#timerModal').on('show.bs.modal', function (event) {
+        const modal = $(this);
+        modal.find('#modalBody').text(lastCompletedTimer);
+    });
+
+    setInterval(tickTimers, 1000);
+</script>
+</html>

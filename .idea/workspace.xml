@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1de5c5df-60c0-45f4-93f0-b0084c481288" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../multi_timers/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/.idea/multi_timers.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../multi_timers/js/bootstrap.min.js.map" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../multi_timers" />
+  </component>
+  <component name="ProjectId" id="1WIiVJmEC3t5P75VjKxJHyIENX3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../multi_timers" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1de5c5df-60c0-45f4-93f0-b0084c481288" name="Default Changelist" comment="" />
+      <created>1578843531972</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578843531972</updated>
+      <workItem from="1578843534540" duration="11408000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1060" y="441" key="FileChooserDialogImpl" timestamp="1578866624590">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1060" y="441" key="FileChooserDialogImpl/0.0.2560.1400/-1440.-1137.1440.2520@0.0.2560.1400" timestamp="1578866624590" />
+  </component>
+</project>
